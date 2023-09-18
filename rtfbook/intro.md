@@ -1,11 +1,73 @@
-# Welcome to your Jupyter Book
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.11.5
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+# Welcome to RawToFigure
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+This documentation describes [echemdbs'](https://github.com/echemdb) take on research data management (RDM) from raw data to publishable figures. We aim at providing a lightweight approach to annotating research data with metadata when it is created and to create machine readable [unitpackages](https://echemdb.github.io/unitpackage/). These unitpackages can be used to browse your data locally, for comparison with published data, for integration in data processing workflows, or for creation of entries in electronic lab notebooks (ELN).
 
-Check out the content pages bundled with this sample book to see more.
+<!--
+The examples provided in this documentation are often related to data found in the research area of electrochemistry, but the concepts are transferrable to other research areas.
+-->
+
+## Example
+
+Consider you record the following data as a {download}`data.csv <files/data/data.csv>`. It is unclear which units the values have, nor can you infer which voltage `U` has been measured or if it has been applied to something.
+
+```sh .noeval
+t,U
+0,101
+1,102
+2,105
+```
+
+```{hint}
+All files of to this documentation can be found in the [repository](https://github.com/echemdb/rawtofigure/rtfbook/files).
+```
+
+Such information is stored as additional metadata along with the csv automatically using [`autotag-metadata`](https://echemdb.github.io/autotag-metadata/), a tool which observes a folder for file changes and writes the metadata from a template. For the above CSV the {download}`YAML <files/data/data.csv.meta.yaml>` could look as follows.
+
+```yaml .noeval
+experimentalist: Max Doe
+supervisor: John Mustermann
+research question: Resistance of a resistor connected in series to a power supply.
+figure description:
+    schema:
+        fields:
+          - name: t
+            unit: s
+          - name: U
+            unit: mV
+            description: Voltage of resistor 1.
+```
+
+There is no limitation in storing metadata along with a your data as illustrated on the example of [echemdbs' metadata schema](https://github.com/echemdb/metadata-schema/blob/main/examples/file_schemas/autotag.yaml) for electrochemical data. For consecutive measurements you usually only change a limited amount of values.
+
+The CSV and YAML can be used to create a [unitpackage](https://echemdb.github.io/unitpackage/usage/unitpackage.html), a file standard which is based on [frictionless datpackages](https://framework.frictionlessdata.io/). For our purpose we use `echemdbconverters` to create frictionless datapackages, providing a simple command line interface.
+
+```{code-cell} ipython3
+!echemdbconverters csv files/data/data.csv --metadata files/data/data.csv.meta.yaml --outdir files/data/generated
+```
+
+A collection of such datapackages can be loaded with the [unitpackage API](https://echemdb.github.io/unitpackage/usage/local_collection.html) to browse, explore, modify or visualize the entries. Here we display the original data of the CSV above with different units.
+
+```{code-cell} ipython3
+from unitpackage.collection import Collection
+from unitpackage.local import collect_datapackages
+
+db = Collection(collect_datapackages('files/data/generated'))
+entry = db['data']
+entry.rescale({'t':'ms', 'U':'V'}).plot('t', 'U')
+```
 
 ```{tableofcontents}
 ```
