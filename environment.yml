@@ -17,4 +17,4 @@ dependencies:
   - svgdigitizer
   - unitpackage
   - pip:
-    - echemdbconverters
+    - echemdbconverters>0.1.0
