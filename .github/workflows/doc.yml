@@ -39,10 +39,11 @@ jobs:
       - name: build documentation
         shell: bash -l {0}
         run: |
-          jupyter-book build rtfbook
-          mv rtfbook/_build/html rtfbook/_build/html_
-          mkdir generated/html
-          mv rtfbook/_build/html_ generated/html/rtfbook
+          cd rtfbook
+          jupyter-book build .
+          mv _build/html _build/html_
+          mkdir -p generated/html
+          mv _build/html_ generated/html/rtfbook
           touch generated/html/rtfbook/.nojekyll
     #   - name: fix permissions
     #     shell: bash -l {0}
@@ -58,7 +59,7 @@ jobs:
       - uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           branch: gh-pages
-          folder: generated/html/rtfbook
+          folder: rtfbook/generated/html/rtfbook
           target-folder: docs
           single-commit: true
         if: ${{ github.event_name == 'push' }}
