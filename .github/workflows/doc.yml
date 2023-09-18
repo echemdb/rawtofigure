@@ -42,7 +42,7 @@ jobs:
           cd rtfbook
           jupyter-book build .
           mv _build/html _build/html_
-          mkdir generated/html
+          mkdir -p generated/html
           mv _build/html_ generated/html/rtfbook
           touch generated/html/rtfbook/.nojekyll
     #   - name: fix permissions
