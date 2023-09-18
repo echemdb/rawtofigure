@@ -1,0 +1,20 @@
+name: rawtofigure
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - black
+  - isort
+  - jupyter-book
+  - jupyterlab
+  - jupytext>=1.13,<2
+  - myst-nb>=0.17.0,<0.18
+  - myst-parser>=0.18,<0.19
+  - pip
+  - pylint
+  - pytest
+  - python>=3.9
+  - svgdigitizer
+  - unitpackage
+  - pip:
+    - echemdbconverters
