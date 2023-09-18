@@ -39,11 +39,12 @@ jobs:
       - name: build documentation
         shell: bash -l {0}
         run: |
-          jupyter-book build rtfbook
-          mv rtfbook/_build/html rtfbook/_build/html_
-          mkdir rtfbook/generated/html
-          mv rtfbook/_build/html_ rtfbook/generated/html/rtfbook
-          touch rtfbook/generated/html/rtfbook/.nojekyll
+          cd rtfbook
+          jupyter-book build .
+          mv _build/html _build/html_
+          mkdir generated/html
+          mv _build/html_ generated/html/rtfbook
+          touch generated/html/rtfbook/.nojekyll
     #   - name: fix permissions
     #     shell: bash -l {0}
     #     run: |
