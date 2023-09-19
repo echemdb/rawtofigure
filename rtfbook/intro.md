@@ -31,7 +31,7 @@ t,U
 ```
 
 ```{hint}
-All files of to this documentation can be found in the [repository](https://github.com/echemdb/rawtofigure/rtfbook/files).
+All demo files mentioned in this documentation can be found in the [repository](https://github.com/echemdb/rawtofigure/rtfbook/files).
 ```
 
 Such information is stored as additional metadata along with the csv automatically using [`autotag-metadata`](https://echemdb.github.io/autotag-metadata/), a tool which observes a folder for file changes and writes the metadata from a template. For the above CSV the {download}`YAML <files/data/data.csv.meta.yaml>` could look as follows.
