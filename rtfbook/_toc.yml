@@ -3,5 +3,9 @@
 
 format: jb-book
 root: intro
+options:
+  maxdepth: 2
 chapters:
-- file: detailed_examples
+- file: chapter_rdm/rdmworkflow
+  sections:
+  - file: chapter_rdm/fnc

@@ -13,11 +13,9 @@ kernelspec:
 ---
 # Welcome to RawToFigure
 
-This documentation describes [echemdbs'](https://github.com/echemdb) take on research data management (RDM) from raw data to publishable figures. We aim at providing a lightweight approach to annotating research data with metadata when it is created and to create machine readable [unitpackages](https://echemdb.github.io/unitpackage/). These unitpackages can be used to browse your data locally, for comparison with published data, for integration in data processing workflows, or for creation of entries in electronic lab notebooks (ELN).
-
-<!--
-The examples provided in this documentation are often related to data found in the research area of electrochemistry, but the concepts are transferrable to other research areas.
--->
+This documentation describes [echemdbs'](https://github.com/echemdb) take on research data management (RDM) from raw data to publishable figures.
+We aim at providing a lightweight approach to annotating research data with metadata when raw data is created and create frictionless based datapackages ([unitpackages](https://echemdb.github.io/unitpackage/)) further usage.
+These unitpackages can be used to browse your data locally based on descriptors provided in the medadata, for comparison with published data, for integration in data processing workflows, or for creation of entries in electronic lab notebooks (ELN).
 
 ## Example
 
@@ -30,13 +28,12 @@ t,U
 2,105
 ```
 
-```{hint}
-All demo files mentioned in this documentation can be found in the [repository](https://github.com/echemdb/rawtofigure/rtfbook/files).
+```{hint} All demo files mentioned in this documentation can be found in the [repository](https://github.com/echemdb/rawtofigure/rtfbook/files).
 ```
 
 Such information is stored as additional metadata along with the csv automatically using [`autotag-metadata`](https://echemdb.github.io/autotag-metadata/), a tool which observes a folder for file changes and writes the metadata from a template. For the above CSV the {download}`YAML <files/data/data.csv.meta.yaml>` could look as follows.
 
-```yaml .noeval
+```yaml
 experimentalist: Max Doe
 supervisor: John Mustermann
 research question: Resistance of a resistor connected in series to a power supply.
