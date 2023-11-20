@@ -9,3 +9,7 @@ chapters:
 - file: chapter_rdm/rdmworkflow
   sections:
   - file: chapter_rdm/fnc
+  - file: chapter_rdm/metadata
+  - file: chapter_rdm/unitpackage_creation
+  - file: chapter_rdm/unitpackage_api
+  - file: chapter_rdm/unitpackage_advanced

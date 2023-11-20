@@ -19,32 +19,24 @@ These unitpackages can be used to browse your data locally based on descriptors 
 
 ## Example
 
-Consider you record the following data as a {download}`data.csv <files/data/data.csv>`. It is unclear which units the values have, nor can you infer which voltage `U` has been measured or if it has been applied to something.
+Consider you record the following data as a {download}`data.csv <files/data/data.csv>`.
 
-```sh .noeval
-t,U
-0,101
-1,102
-2,105
+```{code-cell} ipython3
+:tags: [remove-input]
+import pandas as pd
+df = pd.read_csv('files/data/data.csv')
+df
 ```
 
-```{hint} All demo files mentioned in this documentation can be found in the [repository](https://github.com/echemdb/rawtofigure/rtfbook/files).
-```
+From the data it is unclear which units the values have, nor can you infer which voltage `U` has been measured or if it has been applied to something.
+Such information is stored as additional metadata along with the csv automatically using [`autotag-metadata`](https://echemdb.github.io/autotag-metadata/), a tool which observes a folder for file changes and writes the metadata from a template.
+For the above CSV the {download}`YAML <files/data/data.csv.meta.yaml>` could look as follows.
 
-Such information is stored as additional metadata along with the csv automatically using [`autotag-metadata`](https://echemdb.github.io/autotag-metadata/), a tool which observes a folder for file changes and writes the metadata from a template. For the above CSV the {download}`YAML <files/data/data.csv.meta.yaml>` could look as follows.
+```{code-cell} ipython3
+:tags: [remove-input]
+from IPython.display import Code
 
-```yaml
-experimentalist: Max Doe
-supervisor: John Mustermann
-research question: Resistance of a resistor connected in series to a power supply.
-figure description:
-    schema:
-        fields:
-          - name: t
-            unit: s
-          - name: U
-            unit: mV
-            description: Voltage across resistor 1.
+Code(filename='files/data/data.csv.meta.yaml', language='yaml')
 ```
 
 There is no limitation on the amount of metadata stored along with your data as illustrated on the example of [echemdbs' metadata schema](https://github.com/echemdb/metadata-schema/blob/main/examples/file_schemas/autotag.yaml) for electrochemical data.

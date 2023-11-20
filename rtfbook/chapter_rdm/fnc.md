@@ -24,7 +24,7 @@ A suggested filename could look as follows:
 
 The IDs' are ideally identical to those used in your electronic lab notebook (or wherever you store such information).
 
-In general we also highgly recommend applying to the following rules which can also be found [elsewhere](https://rdmkit.elixir-europe.org/data_organisation.html#what-is-the-best-way-to-name-a-file):
+In general we also highly recommend applying to the following rules which can also be found [elsewhere](https://rdmkit.elixir-europe.org/data_organisation.html#what-is-the-best-way-to-name-a-file):
 
 * Do not use spaces! Use underscores (_), hyphens (- ) instead or capitalized letters to separate elements in the name.
 * Do not use special characters: ?!& , * % # ; * ( ) @$ ^ ~ ‘ { } [ ] < >.

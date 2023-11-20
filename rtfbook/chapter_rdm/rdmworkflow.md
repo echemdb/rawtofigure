@@ -23,3 +23,6 @@ A use case for electrochemical data is presented on [echemdb.org](https://www.ec
 Currently we focus primarily on CSV like files, but the approach can also be extended to image files or other types of data.
 
 Some examples provided in this documentation are related to data found in the research area of electrochemistry, but the concepts are transferrable to any other research areas.
+
+```{hint} All demo files mentioned in this documentation can be found in the [repository](https://github.com/echemdb/rawtofigure/rtfbook/files).
+```
