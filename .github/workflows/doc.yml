@@ -53,7 +53,7 @@ jobs:
       - name: detect broken links
         shell: bash -l {0}
         run: |
-          python -m http.server 8880 --directory doc/generated/html &
+          python -m http.server 8880 --directory generated/html/rtfbook/ &
           sleep 1
           linkchecker --check-extern http://localhost:8880/unitpackage/ --no-robots --ignore mybinder.org --no-warnings
       - uses: JamesIves/github-pages-deploy-action@v4.3.3
