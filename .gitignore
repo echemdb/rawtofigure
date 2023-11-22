@@ -1,2 +1,4 @@
 rtfbook/_build
 rtfbook/files/data/generated
+
+.ipynb_checkpoints
