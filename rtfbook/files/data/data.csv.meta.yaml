@@ -2,10 +2,9 @@ experimentalist: Max Doe
 supervisor: John Mustermann
 research question: Resistance of a resistor connected in series to a power supply.
 figure description:
-    schema:
-        fields:
-          - name: t
-            unit: s
-          - name: U
-            unit: mV
-            description: Voltage across resistor 1.
+    fields:
+      - name: t
+        unit: s
+      - name: U
+        unit: mV
+        description: Voltage across resistor 1.

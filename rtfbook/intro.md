@@ -41,7 +41,7 @@ Code(filename='files/data/data.csv.meta.yaml', language='yaml')
 
 There is no limitation on the amount of metadata stored along with your data as illustrated on the example of [echemdbs' metadata schema](https://github.com/echemdb/metadata-schema/blob/main/examples/file_schemas/autotag.yaml) for electrochemical data.
 
-The CSV and YAML can be used to create a [unitpackage](https://echemdb.github.io/unitpackage/usage/unitpackage.html), a file standard which is based on [frictionless datpackages](https://framework.frictionlessdata.io/). For our purpose we create unitpackages with [`echemdbconverters`](https://echemdb.github.io/unitpackage/usage/echemdb-converters.html), providing a simple command line interface.
+The CSV and YAML can be used to create a [unitpackage](https://echemdb.github.io/unitpackage/usage/unitpackage.html), a file standard which is based on [frictionless datpackages](https://framework.frictionlessdata.io/). For our purpose we create unitpackages with [`echemdbconverters`](https://echemdb.github.io/unitpackage/usage/echemdb-converters.html), providing a simple command line interface (CLI).
 
 ```{code-cell} ipython3
 !echemdbconverters csv files/data/data.csv --metadata files/data/data.csv.meta.yaml --outdir files/data/generated
