@@ -2,18 +2,21 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="95.106697mm"
+   height="43.254482mm"
+   viewBox="0 0 95.106697 43.254482"
    version="1.1"
    id="svg5"
    inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
    sodipodi:docname="rtf_logo.svg"
+   xml:space="preserve"
+   inkscape:export-filename="rtf_logo.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
      id="namedview7"
      pagecolor="#ffffff"
      bordercolor="#000000"
@@ -24,19 +27,32 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.1893044"
-     inkscape:cx="311.94705"
-     inkscape:cy="475.48802"
+     inkscape:zoom="3.3638608"
+     inkscape:cx="198.72998"
+     inkscape:cy="170.48862"
      inkscape:window-width="3456"
      inkscape:window-height="2036"
      inkscape:window-x="-12"
      inkscape:window-y="-12"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
-  <defs
-     id="defs2" />
-  <g
+     inkscape:current-layer="layer1" /><defs
+     id="defs2" /><g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1" />
-</svg>
+     id="layer1"
+     transform="translate(-16.390633,-21.393971)"><text
+       xml:space="preserve"
+       style="font-size:21.1667px;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.714375;stop-color:#000000"
+       x="15.652278"
+       y="37.83289"
+       id="text306"><tspan
+         sodipodi:role="line"
+         id="tspan304"
+         x="15.652278"
+         y="37.83289"
+         style="fill:#0000ff;stroke:#0000ff;stroke-width:0.714375">echemdb</tspan><tspan
+         sodipodi:role="line"
+         x="15.652278"
+         y="64.291267"
+         style="fill:#0000ff;stroke:#0000ff;stroke-width:0.714375"
+         id="tspan308">RDM</tspan></text></g></svg>
