@@ -1,0 +1,50 @@
+{
+    "resources": [
+        {
+            "name": "data_demo",
+            "type": "table",
+            "path": "data_demo.csv",
+            "scheme": "file",
+            "format": "csv",
+            "mediatype": "text/csv",
+            "encoding": "utf-8",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "t",
+                        "type": "integer",
+                        "unit": "s"
+                    },
+                    {
+                        "name": "U",
+                        "type": "integer",
+                        "description": "Voltage across resistor 1.",
+                        "unit": "mV"
+                    }
+                ]
+            },
+            "metadata": {
+                "echemdb": {
+                    "experimentalist": "Max Doe",
+                    "supervisor": "John Mustermann",
+                    "research question": "Resistance of a resistor connected in series to a power supply.",
+                    "figure description": {
+                        "schema": {
+                            "fields": [
+                                {
+                                    "name": "t",
+                                    "unit": "s"
+                                },
+                                {
+                                    "name": "U",
+                                    "unit": "mV",
+                                    "description": "Voltage across resistor 1."
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

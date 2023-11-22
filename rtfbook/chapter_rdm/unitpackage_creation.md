@@ -5,12 +5,13 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.11.5
+    jupytext_version: 1.15.2
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
+
 # Create a unitpackage
 
 Unitpackages can be created the moment files are created or at any later stage from the raw data.
@@ -24,6 +25,7 @@ We start with an ideal CSV, where the first row contains the column names and al
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 import pandas as pd
 df = pd.read_csv('../files/data/data_for_packaging.csv')
 df
@@ -65,9 +67,11 @@ We also tend to save the datapackage with an additional `package` suffix.
 
 ```{code-cell} ipython3
 :tags: [remove-output]
+
 import shutil
+
 shutil.copyfile('../files/data/data_for_packaging.csv', '../files/data/generated/data_for_packaging.csv')
-package.resources[0].path = 'data_for_packaging.csv'
+package.resources[0].path = 'data_for_packaging.csv' # package is usually relative to the path of the file.
 package.to_json('../files/data/generated/data_for_packaging.package.json')
 ```
 
