@@ -40,12 +40,12 @@ In that case we suggest using [autotag-metadata](https://echemdb.github.io/autot
 which allows storing the metadata in YAML automatically along with the measurement file when it is created.
 
 For further unitpackage creation, the information on the fields of the data file should be included in that YAML.
-All echemdb projects expect this information to be nested in `figure description.schema.fields`.
+All echemdb projects expect this information to be nested in `figure description.fields`.
 We used the name `figure description` since the data in a CSV is in principle a figure represented by values.
 An example YAML looks as follows.
 
 ```{warning}
-Since the echemdb modules are still under development, the key `figure description.schema.fields` might change. Keep an eye on the Changelogs.
+Since the echemdb modules are still under development, the key `figure description.fields` might change. Keep an eye on the Changelogs.
 ```
 
 ```{code-cell} ipython3
