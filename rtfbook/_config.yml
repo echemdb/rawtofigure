@@ -3,7 +3,7 @@
 
 title: My sample book
 author: The echemdb authors
-logo: files/logo.png
+logo: files/logo/rtf_logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
