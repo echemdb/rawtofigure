@@ -31,7 +31,7 @@ import yaml
 metadata = yaml.load('../data/files/data.csv.meta.yaml', Loader=yaml.SafeLoader)
 ```
 
-This approach works perfectly fine when you export your newly acquired data after each experiment manually or in a workflow as unitpackage.
+This approach works perfectly fine when you export your newly acquired data after each experiment.
 However, in case you do not have the means to do so, for example when you work with proprietary software
 or a workstation which does not provide you with a programmable interface,
 you should nevertheless store metadata along with your file.
