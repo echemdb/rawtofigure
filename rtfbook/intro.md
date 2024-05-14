@@ -51,9 +51,8 @@ A collection of such datapackages can be loaded with the [unitpackage API](https
 
 ```{code-cell} ipython3
 from unitpackage.collection import Collection
-from unitpackage.local import collect_datapackages
 
-db = Collection(collect_datapackages('files/data/generated'))
+db = Collection.from_local('files/data/generated')
 entry = db['data']
 entry.rescale({'t':'ms', 'U':'V'}).plot('t', 'U')
 ```
