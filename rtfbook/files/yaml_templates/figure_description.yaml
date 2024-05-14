@@ -1,0 +1,12 @@
+type: raw # raw, digitized, computed
+measurement type: temperature variation
+simultaneous measurements:
+  - humidity
+  - light intensity
+fields:
+  - name: t
+    unit: s
+    description: relative time
+  - name: T
+    unit: K
+    description: Room temperature

@@ -1,0 +1,29 @@
+container:
+  type: beaker
+  identifier: beaker1
+  components:
+    - name: beaker
+      manufacturer: Glass Company
+      material: glass
+      LOT: abc123
+    - name: lid
+      manufacturer: 3D printed
+      material: some plastic
+      description: lid with holes
+      LOT: def456
+      purity:
+        impurities:
+          - name: Some chemical
+            concentration: 1 ppm
+atmosphere:
+  components:
+    - name: air
+  temperature:
+    # chose a unit system such as that from astropy or pint for further processing
+    unit: K
+    value: 300
+  humidity:
+    unit: pct
+    value: 25
+light source:
+  name: sun

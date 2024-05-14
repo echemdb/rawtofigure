@@ -1,0 +1,10 @@
+process:
+  - role: experimentalist # the first role is usually the experimentalist
+    name: Max Doe
+    orcid: https://orcid.org/0000-0002-9686-3948
+  - role: supervisor
+    name: The Boss
+    orcid: https://orcid.org/0000-0002-9686-3948
+  - role: curation
+    name: The Data Steward
+    orcid: https://orcid.org/0000-0002-9686-3948

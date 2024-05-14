@@ -1,0 +1,10 @@
+instrumentation:
+  - type: potentiostat
+    manufacturer: Electrocemistry Supplier
+    name: Poti1 # a unique internal name of the device
+  - type: themometer
+    model: xyz
+    manufacturer: Electronic Shop
+    name: TProbe2
+url: https://doi.org/10.1016/0039-6028 # For example: doi referring to a published work describing this setup or configuration
+description: Experimental description # A string or a new set of metadata. Can be outsourced to a separate markdown file.
