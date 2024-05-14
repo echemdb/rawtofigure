@@ -14,6 +14,7 @@ git clone https://github.com/echemdb/rawtofigure.git
 Go to the directory and install the dependencies with
 
 ```sh
+cd rawtofigure
 conda env create --file environment.yaml
 conda activate rawtofigure
 ```
@@ -21,10 +22,10 @@ conda activate rawtofigure
 To build the page locally, run
 
 ```sh
-jb build mybookname/
+jb build rtfbook/
 ```
 
-<!--**Note:** The build requires internet access, since data is pulled from
+<!--**Note:** The build requires internet access since data is pulled from
 external repositories to evaluate the documentation content.-->
 
 The generated files are located in `rtfbook/_build/html` and can be browsed
