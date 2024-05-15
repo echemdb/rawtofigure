@@ -13,14 +13,14 @@ kernelspec:
 ---
 # Metadata
 
-Each measurement file should be annotated by metadata, including data descriptors (units, description of the measured parameter), the experimental conditions (samples, instruments, environment parameters, ...), and possibly also non-specific metadata (users, project, ...).
-Usually, only a limited number of descriptors will change between measurements.
+Each measurement file should be annotated with metadata, including data descriptors (units, description of the measured parameter), the experimental conditions (samples, instruments, environment parameters, ...), and possibly additional metadata (users, project, ...).
+Usually, only a limited number of descriptors will change in a series of measurements.
 For example, you could perform a series of measurements at different temperatures.
 Hence we suggest storing all information in a template, preferably in YAML.
-The YAML format has the advantage of being human and machine-readable alike.
+The YAML format has the advantage of being easily readable by humans and machines.
 A detailed description of how to write YAML can be found [elsewhere](https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started#dictionaries).
 
-A {download}`simple example <../files/data/data.csv.meta.yaml>` could look as follows:
+A {download}`simple example <../files/data/data.csv.meta.yaml>` could be as follows:
 ```{code-cell} ipython3
 :tags: [remove-input]
 from IPython.display import Code
@@ -33,7 +33,7 @@ Code(filename='../files/data/data.csv.meta.yaml', language='yaml')
 For further processing of your data, it is helpful to acquire as many details on the measurement as possible in a structured way.
 The following categories are used by the [echemdb metadata-schema](https://github.com/echemdb/metadata-schema) and serve as examples to create your schema.
 
-**curation**: Details on the persons involved in the data acquisition process.
+**curation**: Details on the people involved in the data acquisition process.
 
 ```{note}
 The name curation refers to the curation process of the measured data. The list can be extended later, when data is modified, reused or curated by other people.
@@ -59,7 +59,7 @@ from IPython.display import Code
 Code(filename='../files/yaml_templates/projects.yaml', language='yaml')
 ```
 
-**figure description**: Contains descriptors for the underlying data, which are useful for exporting the data. It also contains information on what would be displayed in the figure and which other data is associated with the present figure/data.
+**figure description**: Contains descriptors for the underlying data, which are necessary for exporting the data in a meaningful way. It also contains information on what would be displayed in the figure and which other data is associated with the present figure/data.
 
 ```{note}
 To create `unitpackages`, the structure for the fields must be followed. The `name` for each field must match a field/column name in the CSV (datafile).
@@ -81,7 +81,7 @@ from IPython.display import Code
 Code(filename='../files/yaml_templates/experimental.yaml', language='yaml')
 ```
 
-**system**: Details on the system on which the experiment is performed, including anything that is in contact with or any eternal parameters that can have an impact on the measurement. Consider putting a banana in a beaker to study how its color changes when the external parameters, such as the atmosphere, temperature and light intensity/source.
+**system**: Details on the system on which the experiment is performed, including anything that is in contact with or any external parameters that can have an impact on the system/measurement. Consider putting a banana in a beaker to study how its color changes when the external parameters, such as contact with microorganisms during transport, as well as the atmosphere, temperature and light intensity/source while performing the experiment are varied.
 Also, include information that does not seem to be relevant at the time of the data acquisition.
 
 ```{note}
@@ -98,7 +98,7 @@ Code(filename='../files/yaml_templates/system.yaml', language='yaml')
 
 An extensive example of a more complete YAML template for an electrochemical system can be found [here](https://github.com/echemdb/metadata-schema/blob/main/examples/file_schemas/autotag.yaml).
 
-A complete YSML would contain all of the above (and other custom) categories.
+A complete YAML would contain all of the above (and other custom) categories.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -120,7 +120,7 @@ metadata = yaml.load('../data/files/data.csv.meta.yaml', Loader=yaml.SafeLoader)
 
 ## Annotating data automatically
 
-When (measurement) files are created in the file system, preferably the content of the YAML template is directly associated with the measurement file.
+When (measurement) files are created in the file system, preferably the content of the YAML template is directly associated with the file.
 This can be achieved by monitoring the file system for newly created files. Following we illustrate the approach by using the Python watchdog module.
 Besides we also provide a solution with a graphical user interface.
 
@@ -131,7 +131,7 @@ On file creation, the content from the YAML template is written in the same fold
 The name will be identical to the newly created file and a `.meta.yaml` is appended to the existing filename.
 
 ```{note}
-We decided to append both suffixes `meta` and `yaml` to the original suffix, to clearly illustrate that this file
+We decided to append both suffixes `meta` and `yaml` to the original suffix, to clearly indicate that this file
 contains metadata for the recorded CSV and that the content is YAML.
 ```
 
