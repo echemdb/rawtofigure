@@ -121,7 +121,7 @@ metadata = yaml.load('../data/files/data.csv.meta.yaml', Loader=yaml.SafeLoader)
 ## Annotating data automatically
 
 When (measurement) files are created in the file system, preferably the content of the YAML template is directly associated with the file.
-This can be achieved by monitoring the file system for newly created files. Following we illustrate the approach by using the Python watchdog module.
+This can be achieved by monitoring the file system for newly created files. Following, we illustrate the approach by using the Python watchdog package.
 Besides we also provide a solution with a graphical user interface.
 
 ### Watchdog
