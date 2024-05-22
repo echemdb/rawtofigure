@@ -30,7 +30,7 @@ Code(filename='../files/data/data.csv.meta.yaml', language='yaml')
 
 ## Designing a metadata template
 
-For further processing of your data, it is helpful to acquire as many details on the measurement as possible in a structured way.
+For further processing of your data, it is helpful to acquire as many details on the measurement in a structured way.
 The following categories are used by the [echemdb metadata-schema](https://github.com/echemdb/metadata-schema) and serve as examples to create your schema.
 
 **curation**: Details on the people involved in the data acquisition process.
@@ -81,7 +81,7 @@ from IPython.display import Code
 Code(filename='../files/yaml_templates/experimental.yaml', language='yaml')
 ```
 
-**system**: Details on the system on which the experiment is performed, including anything that is in contact with or any external parameters that can have an impact on the system/measurement. Consider putting a banana in a beaker to study how its color changes when the external parameters, such as contact with microorganisms during transport, as well as the atmosphere, temperature and light intensity/source while performing the experiment are varied.
+**system**: Details on the system on which the experiment is performed, including anything that is in contact with or any external parameters that can have an impact on the system/measurement. Consider putting a banana in a beaker to study how its color changes when the external parameters, such as contact with microorganisms during transport, as well as the atmosphere, temperature and light intensity/source are varied in different experiments.
 Also, include information that does not seem to be relevant at the time of the data acquisition.
 
 ```{note}
@@ -114,15 +114,15 @@ The YAML files can be loaded as a Python dictionary.
 
 ```{code-cell} ipython3
 import yaml
-
-metadata = yaml.load('../data/files/data.csv.meta.yaml', Loader=yaml.SafeLoader)
+with open('../data/files/data.csv.meta.yaml', 'rb') as f:
+  metadata = yaml.load(f, Loader=yaml.SafeLoader)
 ```
 
 ## Annotating data automatically
 
 When (measurement) files are created in the file system, preferably the content of the YAML template is directly associated with the file.
 This can be achieved by monitoring the file system for newly created files. Following, we illustrate the approach by using the Python watchdog package.
-Besides we also provide a solution with a graphical user interface.
+Besides, we also provide a solution with a graphical user interface.
 
 ### Watchdog
 
@@ -141,6 +141,10 @@ from watchdog.events import FileSystemEventHandler
 from pathlib import Path
 import yaml
 
+# adapt accordingly
+observed_dir = './data/'
+yaml_template = '/files/yaml_templates/demo.yaml'
+suffix = '.csv' # mind the dot
 
 def create_metadata(filename):
     # load the metadata from a yaml template
@@ -150,14 +154,14 @@ def create_metadata(filename):
     # Add further methods that enhance or modifiy the YAML template
 
     # write an output YAML file
-    outyaml = Path(filename).with_suffix('.csv.meta.yaml')
+    outyaml = Path(filename).with_suffix(suffix + '.meta.yaml')
     with open(outyaml, 'w') as f:
         yaml.dump(metadata, f)
 
 
 class NewFileHandler(FileSystemEventHandler):
     def on_created(self, event):
-        if Path(event.src_path).suffix == '.csv':
+        if Path(event.src_path).suffix == suffix:
             # print the filename
             print(event.src_path, ' ' , Path(event.src_path).suffix)
             # When a new file is created we catch the filename and parse it to a method
@@ -168,13 +172,13 @@ class NewFileHandler(FileSystemEventHandler):
 observer = Observer()
 
 # schedule the observer to observe the folder
-observer.schedule(NewFileHandler(), folder_path='./data/', recursive=False)
+observer.schedule(NewFileHandler(), path=observed_dir, recursive=False)
 
 # start the observer
 observer.start()
 ```
 
-To stop watching the folder execute
+To stop watching the folder execute in a separate cell
 
 ```python
 observer.stop()
